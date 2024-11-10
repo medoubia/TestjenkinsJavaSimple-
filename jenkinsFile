@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Compile') {
             steps {
-                sh 'javac -d out src/Main.java src/MainTest.java'
+                sh 'javac -cp "lib/*" -d out src/Main.java src/MainTest.java'
             }
         }
         stage('Test') {
