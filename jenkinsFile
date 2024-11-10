@@ -1,4 +1,4 @@
-/*
+
 pipeline {
     agent any
     tools {
@@ -42,13 +42,13 @@ pipeline {
     }
 }
 
-*/
 
 pipeline {
     agent any
     tools {
-        jdk 'openjdk21'
+            jdk 'openjdk21'
     }
+
 
     stages {
         stage('List files') {
@@ -63,7 +63,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'java -classpath "lib/*:out" org.junit.runner.JUnitCore MainTest'
+                sh 'java -classpath lib/* src/MainTest.java'
             }
         }
         stage('Run') {
