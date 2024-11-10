@@ -9,12 +9,12 @@ pipeline {
         }
         stage('Compile') {
             steps {
-                sh 'javac -d out src/Main.java'
+                sh 'javac -d out src/Main.java src/MainTest.java'
             }
         }
         stage('Test') {
             steps {
-                sh 'java -classpath lib/* src/MainTest.java'
+                sh 'java -cp "out:lib/*" MainTest'
             }
         }
         stage('Run') {
