@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tools {
+        jdk 'openjdk21' 
+    }
 
     stages {
         stage('List files') {
