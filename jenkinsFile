@@ -4,22 +4,22 @@ pipeline {
     stages {
         stage('List files') {
             steps {
-                bat 'dir'
+                sh 'ls -la'
             }
         }
         stage('Compile') {
             steps {
-                bat 'javac -d out src/Main.java'
+                sh 'javac -d out src/Main.java'
             }
         }
         stage('Test') {
             steps {
-                bat 'java -classpath lib/* src/MainTest.java'
+                sh 'java -classpath lib/* src/MainTest.java'
             }
         }
         stage('Run') {
             steps {
-                bat 'java -cp out Main'
+                sh 'java -cp out Main'
             }
         }
     }
